@@ -1,0 +1,23 @@
+package basics.codingpractice.datastructures;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayList_usage {
+
+	public static void main(String[] args) {
+		List<Integer> llist = new ArrayList<Integer>(); 
+		
+		llist.add(10); 
+		llist.add(20); 
+		llist.add(30); 
+		llist.add(40); 
+		llist.add(50);
+		
+		for(Integer ltest: llist) { 
+			System.out.println(ltest);
+		}
+
+	}
+
+}

@@ -1,0 +1,31 @@
+package basics.collections.mysqlrowmapperinterface;
+
+import java.util.List;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import basics.collections.mysqlrowmapperinterface.dao.StudentDaoImpl;
+import basics.collections.mysqlrowmapperinterface.model.Student;
+
+public class TestRowMapper {
+
+    public static void main(String[] args) {
+        
+        // Reading the application-context file using
+        // class path of spring context xml file
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+        
+        // Spring check the blueprint for studentDao bean 
+        // from application-context.xml file and return it
+        StudentDaoImpl studentDaoImpl = (StudentDaoImpl)context.getBean("studentDao");
+        
+        // Getting student data
+        List<Student> studentDetailList = studentDaoImpl.getAllStudentDetails();
+        
+        for(Student index : studentDetailList) {
+            System.out.println(index);
+        }
+
+    }
+}

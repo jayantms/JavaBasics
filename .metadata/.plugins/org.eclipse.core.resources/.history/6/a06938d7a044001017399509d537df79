@@ -1,0 +1,27 @@
+package basics.collections.multithreadedapp;
+
+public class TransactionProcessingUnit implements Runnable {
+	TransactionHandling lobj; 
+	
+	WorkingUnit(TransactionHandling llobj) {
+		lobj = lobj; 
+	}
+	
+
+	public void run() {
+		while (true) {
+
+			Employee e1 = lobj.getRecord(); 
+			
+			if(e1 != null) 
+				System.out.println("Retrieved record - "+e1.toString()); 
+			
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}

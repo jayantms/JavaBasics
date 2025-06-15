@@ -1,0 +1,46 @@
+package basics.codingpractice.datastructures;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class ArrayList_usage {
+
+	public static void main(String[] args) {
+		List<Integer> llist = new ArrayList<Integer>(); 
+
+		//////// Addition 
+		llist.add(10); 
+		llist.add(20); 
+		llist.add(30); 
+		llist.add(40); 
+		llist.add(50);
+		
+		for(Integer ltest: llist) { 
+			System.out.println(ltest);
+		}
+
+		//////// Iterations 
+
+		System.out.println("-----------------------------------------"); 
+		Iterator<Integer> iter = llist.iterator();
+		
+		while(iter.hasNext()) { 
+			System.out.println(iter.next()); 
+		}
+
+		System.out.println("-----------------------------------------"); 
+		llist.forEach(num -> { 
+			System.out.println(num); 
+		});
+		
+		/////////// Search 
+		System.out.println("The Number is present - "+llist.contains(30)); 
+		System.out.println("The Number is present - "+llist.contains(90)); 
+		System.out.println("The index of numbr 50 - "+llist.indexOf(50));
+		System.out.println("The number at index 3 is - "+llist.get(3));
+		
+
+	}
+
+}

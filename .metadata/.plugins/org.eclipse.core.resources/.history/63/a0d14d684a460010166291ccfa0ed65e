@@ -1,0 +1,14 @@
+package basics.codingpractice;
+
+public class PrimeNumber {
+
+	public static void main(String[] args) {
+
+		int inpNumber = 13; 
+		
+		for(int i=2 ; i < inpNumber ; i++) {
+			System.out.println(inpNumber % i); 
+		}
+
+	}
+}

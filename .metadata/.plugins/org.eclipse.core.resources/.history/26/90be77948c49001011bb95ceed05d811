@@ -1,0 +1,11 @@
+package basics.codingpractice.datastructures;
+
+///////// Map
+
+public class Hashmap_usage 
+{
+    public static void main( String[] args )
+    {
+        Map<Integer, String> lmap = new HashMap<>(); 
+    }
+}

@@ -1,0 +1,33 @@
+package basics.collections.springjpa;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import basics.collections.springjpa.dao.StudentsRepo;
+
+public class TestRowMapper {
+
+    public static void main(String[] args) {
+        
+    	@Autowired
+    	StudentsRepo repo;
+    	
+        // Reading the application-context file using
+        // class path of spring context xml file
+        //AbstractApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+        
+        // Spring check the blueprint for studentDao bean 
+        // from application-context.xml file and return it
+     
+        /*
+        StudentDaoImpl studentDaoImpl = (StudentDaoImpl)context.getBean("studentDao");
+        
+        // Getting student data
+        List<Student> studentDetailList = studentDaoImpl.getAllStudentDetails();
+        
+        for(Student index : studentDetailList) {
+            System.out.println(index);
+        }
+        */
+
+    }
+}

@@ -1,0 +1,30 @@
+package basics.collections.mongodbaccess.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import basics.collections.mongodbaccess.entity.*;
+
+import basics.collections.mongodbaccess.entity.JournalEntry;
+
+@RestController
+@RequestMapping("/Journal")
+public class JournalController {
+	
+	@Autowired
+	private JournalService journalEntryService;  
+
+	@GetMapping
+	public String helloWorld() {
+		return "Hello World"; 
+	}
+	
+	@PostMapping 
+	public boolean createEntry(@RequestBody JournalEntry myEntry) {
+
+		return true;
+	}
+}
+

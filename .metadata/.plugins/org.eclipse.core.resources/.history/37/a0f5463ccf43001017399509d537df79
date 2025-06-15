@@ -1,0 +1,27 @@
+package basics.collections.linkedlistimplementation;
+
+public class LinkedListX {
+	Node lhead; 
+	
+	public void insertNode(int ldata) {
+		if(lhead == null) {
+			Node ltest = new Node();
+			ltest.data = ldata; 
+		}else
+		{
+			Node lheadrefer = lhead; 
+			while(lheadrefer != null) {
+				lheadrefer = lheadrefer.lnext; 
+			}
+		}
+	}
+	
+	public void displayList() { 
+		Node lheadrefer = lhead; 
+
+		while(lheadrefer != null) {
+			System.out.println(lheadrefer.data); 
+			lheadrefer = lheadrefer.lnext; 
+		}
+	}
+}

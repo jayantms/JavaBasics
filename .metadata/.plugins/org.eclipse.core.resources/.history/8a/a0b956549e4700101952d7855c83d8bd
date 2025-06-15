@@ -1,0 +1,16 @@
+package basics.codingpractice.algorithms;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class bfs {
+
+	public static void main(String[] args) {
+
+		List<List<Integer>> llist = new ArrayList<List<Integer>>(); 
+		
+		llist.add(new ArrayList<Integer>); 
+		
+	}
+
+}

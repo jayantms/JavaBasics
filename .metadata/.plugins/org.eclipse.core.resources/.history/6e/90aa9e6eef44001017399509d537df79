@@ -1,0 +1,5 @@
+package basics.collections.mongodbaccess.repo;
+
+public interface JournalEntryRepo {
+
+}

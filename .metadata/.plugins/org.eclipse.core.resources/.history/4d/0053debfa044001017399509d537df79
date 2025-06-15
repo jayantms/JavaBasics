@@ -1,0 +1,25 @@
+package basics.collections.multithreadedapp;
+
+public class WorkingUnit implements Runnable {
+	TransactionHandling lobj; 
+	
+	WorkingUnit(TransactionHandling llobj) {
+		lobj = lobj; 
+	}
+	
+
+	public void run() {
+		while (true) {
+
+			
+			
+			
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}

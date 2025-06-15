@@ -1,0 +1,31 @@
+package basics.collections.kafka;
+
+import org.apache.kafka.clients.consumer.*;
+import java.time.Duration;
+import java.util.Collections;
+import java.util.Properties;
+
+public class KafkaConsumerExample {
+    private static final String TOPIC = "testtopic-1";
+    private static final String BOOTSTRAP_SERVERS = "localhost:9092";
+
+    public static void main(String[] args) {
+        Properties props = new Properties();
+        props.setProperty("bootstrap.servers", BOOTSTRAP_SERVERS);
+        props.setProperty("group.id", "my-group-id");
+        props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        props.setProperty("enable.auto.commit", "true");
+        props.setProperty("auto.commit.interval.ms", "1000");
+
+        try (KafkaConsumer<String, Employee> consumer = new KafkaConsumer<>(props)) {
+            consumer.subscribe(Collections.singletonList(TOPIC));
+            while (true) {
+                ConsumerRecords<String, Employee> records = consumer.poll(Duration.ofMillis(1000));
+                for (ConsumerRecord<String, String> record : records) {
+                    System.out.printf("Received message: key=%s, value=%s%n", record.key(), record.value());
+                }
+            }
+        }
+    }
+}

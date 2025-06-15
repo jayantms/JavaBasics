@@ -1,0 +1,11 @@
+package basics.collections.mongodbaccess.controller;
+
+@RestController
+@RequestMapping("/Journal")
+public class JournalController {
+	@GetMapping
+	public String helloWorld() {
+		return "Hello World"
+	}
+}
+

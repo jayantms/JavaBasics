@@ -1,0 +1,11 @@
+package basics.codingpractice;
+
+public class CheckSubstring {
+
+	public static void main(String[] args) {
+		String test1 = "bcpqrsabcdlmn"; 
+		String test2 = "abc"; 
+
+	}
+
+}

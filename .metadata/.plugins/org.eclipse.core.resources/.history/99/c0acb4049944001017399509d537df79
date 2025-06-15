@@ -1,0 +1,16 @@
+package basics.collections.mapinterface;
+
+import java.util.Hashtable;
+import java.util.Map;
+
+public class HashTableExample {
+	
+	public static void main(String[] argv) {
+		
+		Map<Integer, Employee> lmap = new Hashtable<Integer, Employee>(); 
+		
+		
+		
+		
+	}
+}

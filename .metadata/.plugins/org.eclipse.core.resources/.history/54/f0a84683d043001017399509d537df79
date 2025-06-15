@@ -1,0 +1,20 @@
+package basics.collections.linkedlistimplementation;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	LinkedListX<Integer> ltest = new LinkedListX(); 
+    	
+    	ltest.insertNode("Abcd");
+    	ltest.insertNode("Pqrs");
+    	ltest.insertNode("Lmno");
+    	ltest.insertNode("Rstv");
+
+    	ltest.displayList();
+    }
+}

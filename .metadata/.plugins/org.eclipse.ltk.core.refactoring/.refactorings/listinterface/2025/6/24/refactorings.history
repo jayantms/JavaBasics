@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Employee.java&apos; to &apos;kafka/src/main/java/basics.collections.kafka&apos;&#x0D;&#x0A;- Original project: &apos;listinterface&apos;&#x0D;&#x0A;- Destination element: &apos;kafka/src/main/java/basics.collections.kafka&apos;&#x0D;&#x0A;- Original element: &apos;basics.collections.listinterface.Employee.java&apos;" description="Copy compilation unit" destination="=kafka/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;basics.collections.kafka" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;basics.collections.listinterface{Employee.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1749405901518" units="1" version="1.0"/>
+</session>

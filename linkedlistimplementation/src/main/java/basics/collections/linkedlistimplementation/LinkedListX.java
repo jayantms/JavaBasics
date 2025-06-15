@@ -1,0 +1,70 @@
+package basics.collections.linkedlistimplementation;
+
+public class LinkedListX<T> {
+	Node lhead; 
+	
+	LinkedListX() { 
+		lhead = null; 
+	}
+	
+	public void insertNode(T ldata) 
+	{
+		if(lhead == null) 
+		{
+		   lhead = new Node();
+		   lhead.data = ldata; 
+		}else
+		{
+			Node lheadrefer = lhead; 
+			while(lheadrefer.lnext != null) {
+				lheadrefer = lheadrefer.lnext; 
+			}
+			
+		   Node lnewNode = new Node();
+		   lnewNode.data = ldata;
+		   
+		   lheadrefer.lnext = lnewNode; 
+		}
+	}
+	
+	////////////////////////////////////////
+	
+	public void removeNode(T ldata) 
+	{
+		Node lheadrefer = lhead;
+		Node lprevNode = null;
+		boolean lfoundMatch = false; 
+		
+		while(lheadrefer != null) 
+		{
+			if(lheadrefer.data == ldata) 
+			{
+				if(lprevNode != null) 
+					lprevNode.lnext = lheadrefer.lnext;
+				else 
+					lhead = lheadrefer.lnext; 
+
+				lfoundMatch = true; 
+				break; 
+			}else
+			{
+				lprevNode = lheadrefer; 
+				lheadrefer = lheadrefer.lnext; 
+			}
+		}
+		
+		if(!lfoundMatch) 
+		   System.out.println("No match found.."); 
+	}	
+
+	////////////////////////////////////////
+	
+	public void displayList() { 
+		Node lheadrefer = lhead; 
+
+		while(lheadrefer != null) {
+			System.out.println(lheadrefer.data); 
+			lheadrefer = lheadrefer.lnext; 
+		}
+	}
+}

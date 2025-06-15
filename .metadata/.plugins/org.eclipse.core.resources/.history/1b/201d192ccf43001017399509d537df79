@@ -1,0 +1,12 @@
+package basics.collections.linkedlistimplementation;
+
+public class LinkedListX {
+	Node lhead; 
+	
+	public void insertNode(int ldata) {
+		if(lhead == null) {
+			Node ltest = new Node();
+			
+		}
+	}
+}

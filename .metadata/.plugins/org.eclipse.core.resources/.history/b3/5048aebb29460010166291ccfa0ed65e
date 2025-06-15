@@ -1,0 +1,10 @@
+package basics.codingpractice;
+
+public class DiceRollTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

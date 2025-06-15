@@ -1,0 +1,19 @@
+package basics.codingpractice.algorithms;
+
+public class mergesort {
+    public static void main( String[] args )
+    {
+        int[] ldata = new int[] {23,58,37,98,65,9,76,45,87,21,19,79,83,5};
+        
+        mergesort(ldata, 0, ldata.length, (0+ldata.length)/2); 
+    }
+    
+    
+    public static void mergesort(int[] ldata, int low, int high, int mid) {
+
+    	if(low < high) {
+    		//mergesort(ldata, )
+    	}
+    }
+
+}

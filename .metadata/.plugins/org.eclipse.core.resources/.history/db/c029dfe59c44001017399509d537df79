@@ -1,0 +1,16 @@
+package basics.collections.multithreadedapp;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	WorkerUnit w1 = new WorkerUnit(); 
+    	Thread t1 = new Thread(w1); 
+    	
+    
+    }
+}

@@ -1,0 +1,5 @@
+package basics.collections.multithreadedapp;
+
+public class WorkingUnit {
+
+}

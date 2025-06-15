@@ -1,0 +1,6 @@
+package basics.collections.linkedlistimplementation;
+
+public class Node<T> {
+	int data; 
+	Node lnext; 
+}

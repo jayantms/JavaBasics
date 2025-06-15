@@ -1,0 +1,5 @@
+package basics.collections.mongodbaccess.controller;
+
+public class JournalController {
+
+}

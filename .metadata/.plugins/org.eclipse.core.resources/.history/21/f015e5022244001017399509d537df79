@@ -1,0 +1,29 @@
+import org.apache.kafka.clients.producer.*;
+import java.util.Properties;
+
+public class KafkaProducerExample {
+    private static final String TOPIC = "my-topic";
+    private static final String BOOTSTRAP_SERVERS = "localhost:9092";
+
+    public static void main(String[] args) {
+        Properties props = new Properties();
+        props.put("bootstrap.servers", BOOTSTRAP_SERVERS);
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+
+        try (Producer<String, String> producer = new KafkaProducer<>(props)) {
+            for (int i = 0; i < 10; i++) {
+                String key = Integer.toString(i);
+                String value = "message " + i;
+                producer.send(new ProducerRecord<>(TOPIC, key, value),
+                    (metadata, exception) -> {
+                        if (exception == null) {
+                            System.out.printf("Sent message: key=%s, value=%s%n", key, value);
+                        } else {
+                            exception.printStackTrace();
+                        }
+                    });
+            }
+        }
+    }
+}

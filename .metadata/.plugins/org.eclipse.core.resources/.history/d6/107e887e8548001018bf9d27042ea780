@@ -1,0 +1,9 @@
+package basics.collections.mongodbaccess.repo;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import basics.collections.mongodbaccess.entity.JournalEntry;
+
+public interface JournalEntryRepo extends MongoRepository<JournalEntry, String>  {
+
+}

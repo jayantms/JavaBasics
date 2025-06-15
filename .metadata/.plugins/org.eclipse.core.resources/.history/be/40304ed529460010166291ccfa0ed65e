@@ -1,0 +1,28 @@
+package basics.codingpractice;
+
+public class DiceRollTest {
+
+	public static void main(String[] args) {
+		
+		// dice = 1
+		// faces = 6 
+		
+		int d = 1;
+		int f = 6; 
+		
+		rollDice(d, f); 
+	}
+	
+	
+	public static void rollDice(int d, int f) {
+		for(int i=0 ; i < d ; i++) {
+			System.out.println("# Dice - "+i+" , "+f);
+			
+			if(f == 1) 
+				return; 
+			
+			rollDice(d, f-1); 
+		}
+	}
+   
+}

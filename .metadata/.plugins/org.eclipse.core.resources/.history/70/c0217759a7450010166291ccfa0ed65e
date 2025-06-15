@@ -1,0 +1,43 @@
+package basics.codingpractice;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class ThreeSum {
+	public static void main(String[] args) {
+		int[] nums = new int[] {-1,0,1,2,-1,-4}; 
+		List<List<Integer>> ylist = new ArrayList<List<Integer>>(); 
+		Set<String> chkSet = new HashSet<String>();
+		boolean lkeyexists = false; 
+		
+		for(int i=0 ; i < nums.length ; i++) {
+			for(int j=0 ; j < nums.length ; j++) {
+				for(int k=0 ; k < nums.length ; k++) {
+					if( i != j && j !=k && i != k && (nums[i] + nums[j] + nums[k] == 0)) {
+						
+						if(!chkSet.isEmpty()) {
+							String key = nums[i] + ":" + nums[j] + ":" + nums[k]; 
+							if(chkSet.contains(key)) {
+								lkeyexists = true; 
+							}
+						}
+						
+						if(!lkeyexists) {
+							List<Integer> xlist = new ArrayList<Integer>(); 
+							xlist.add(Integer.valueOf(i)); 
+							xlist.add(Integer.valueOf(j)); 
+							xlist.add(Integer.valueOf(j));
+							
+							System.out.println(" "+nums[i]+ " , "+nums[j]+" , "+nums[k]); 
+							ylist.add(xlist);
+							lkeyexists = false; 
+						}
+					}
+				}
+			}
+		}
+		
+	}
+}

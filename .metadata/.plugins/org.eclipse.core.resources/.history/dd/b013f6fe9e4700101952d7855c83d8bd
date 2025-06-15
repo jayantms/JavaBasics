@@ -1,0 +1,32 @@
+package basics.codingpractice.algorithms;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class bfs {
+
+	public static void main(String[] args) {
+
+		List<List<Integer>> llist = new ArrayList<List<Integer>>(); 
+		
+		llist.add(new ArrayList<Integer>(Arrays.asList(1,2)));    // 0
+		llist.add(new ArrayList<Integer>(Arrays.asList(0,2,3)));  // 1
+		llist.add(new ArrayList<Integer>(Arrays.asList(0,4)));  // 2
+		llist.add(new ArrayList<Integer>(Arrays.asList(1,4)));  // 3
+		llist.add(new ArrayList<Integer>(Arrays.asList(2,3)));  // 4
+		
+		int i=0; 
+		for(List<Integer> tmp : llist) {
+			
+			System.out.print(i + " -> "); 
+			
+			for(Integer tmp2: tmp) {
+				System.out.print(tmp2+ " "); 
+			}
+			System.out.println("\n");
+		}
+		
+	}
+
+}

@@ -1,0 +1,12 @@
+package basics.collections.listinterface;
+
+
+
+public class ArrayListExample 
+{
+    public static void main( String[] args )
+    {
+        ArrayList<String> larrayList = new ArrayList<String>(); 
+        
+    }
+}

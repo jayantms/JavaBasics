@@ -1,0 +1,5 @@
+package basics.collections.kafka;
+
+public class KafkaConsumerExample {
+
+}

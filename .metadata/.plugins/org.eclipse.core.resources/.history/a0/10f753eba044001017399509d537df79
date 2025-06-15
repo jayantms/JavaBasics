@@ -1,0 +1,19 @@
+package basics.collections.multithreadedapp;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	TransactionHandling t1 = new TransactionHandling(); 
+
+    	TransactionProcessingUnit w1 = new TransactionProcessingUnit(t1); 
+    	Thread th1 = new Thread(w1);
+    	
+    	th1.start();
+    
+    }
+}

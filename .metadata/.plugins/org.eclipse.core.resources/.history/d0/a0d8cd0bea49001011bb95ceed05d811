@@ -1,0 +1,59 @@
+package basics.codingpractice.datastructures;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+///////// Map
+
+public class Hashmap_usage 
+{
+    public static void main( String[] args )
+    {
+        Map<Integer, String> lmap = new HashMap<Integer, String>();
+        lmap.put(1, "TestA"); 
+        lmap.put(2, "TestB"); 
+        lmap.put(3, "TestC"); 
+        lmap.put(4, "TestD"); 
+        lmap.put(5, "TestE"); 
+
+        Map<Integer, String> lmap = new HashMap<Integer, String>(Pair<1,"TestA">);
+        
+        /////////// Iterations 
+        // Using entrySet. 
+        
+        for(Map.Entry<Integer, String> lset : lmap.entrySet()) {
+        	System.out.println(lset.getKey()+ " - "+lset.getValue()); 
+        }
+        
+        // Using Keyset 
+        for(Integer lkey: lmap.keySet()) { 
+        	System.out.println(lkey); 
+        }
+        
+        // Using Keyset 
+        for(String lkeyval: lmap.values()) { 
+        	System.out.println(lkeyval); 
+        }
+
+        // Using iterator 
+        Iterator<Map.Entry<Integer, String>> iter = lmap.entrySet().iterator();
+        
+        while(iter.hasNext()) { 
+        	Map.Entry<Integer, String> lentry = iter.next(); 
+        	System.out.println(lentry.getKey()+ " - "+lentry.getValue());
+        }
+        
+        /////////// Find 
+        System.out.println("Found item - 3 " +lmap.get(3)); 
+     
+        ////////////////////////////////////////////////
+        
+        lmap.remove(3); 
+        for(Map.Entry<Integer, String> lset : lmap.entrySet()) {
+        	System.out.println(lset.getKey()+ " - "+lset.getValue()); 
+        }
+        
+        ////////////////////////////////////////////////
+    }
+}

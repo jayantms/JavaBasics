@@ -1,0 +1,31 @@
+package basics.codingpractice.datastructures;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class Set_usage {
+	public static void main(String args[]) {
+		Set<Integer> lset = new HashSet<Integer>();
+		
+		//// Addition 
+		lset.add(10); 
+		lset.add(20); 
+		lset.add(30); 
+		lset.add(40); 
+		lset.add(50);
+		
+		//// Iterations 
+		for(Integer ltest: lset) { 
+			System.out.println(ltest); 
+		}
+		
+		System.out.println("-----------------------------------------"); 
+		/////
+		Iterator<Integer> iter = lset.iterator(); 
+		while(iter.hasNext()) {
+			System.out.println(iter.next()); 
+		}
+		System.out.println("-----------------------------------------"); 
+	}
+}

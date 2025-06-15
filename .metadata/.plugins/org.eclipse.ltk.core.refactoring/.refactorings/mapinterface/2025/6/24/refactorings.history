@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Employee.java&apos; to &apos;multithreadedapp/src/main/java/basics.collections.multithreadedapp&apos;&#x0D;&#x0A;- Original project: &apos;mapinterface&apos;&#x0D;&#x0A;- Destination element: &apos;multithreadedapp/src/main/java/basics.collections.multithreadedapp&apos;&#x0D;&#x0A;- Original element: &apos;basics.collections.mapinterface.Employee.java&apos;" description="Copy compilation unit" destination="=multithreadedapp/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;basics.collections.multithreadedapp" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;basics.collections.mapinterface{Employee.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1749410231277" units="1" version="1.0"/>
+</session>

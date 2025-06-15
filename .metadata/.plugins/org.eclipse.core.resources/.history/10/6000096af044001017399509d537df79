@@ -1,0 +1,5 @@
+package basics.collections.mongodbaccess.service;
+
+public class JournalService {
+
+}

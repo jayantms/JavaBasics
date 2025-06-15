@@ -1,0 +1,28 @@
+package basics.codingpractice.datastructures;
+
+import java.util.HashMap;
+import java.util.Map;
+
+///////// Map
+
+public class Hashmap_usage 
+{
+    public static void main( String[] args )
+    {
+        Map<Integer, String> lmap = new HashMap<Integer, String>();
+        lmap.put(1, "TestA"); 
+        lmap.put(2, "TestB"); 
+        lmap.put(3, "TestC"); 
+        lmap.put(4, "TestD"); 
+        lmap.put(5, "TestE"); 
+        
+        /////////// Iterations 
+        for(Map.Entry<Integer, String> lset : lmap.entrySet()) {
+        	System.out.println(lset.getKey()+ " - "+lset.getValue()); 
+        }
+        
+        /////////// Find 
+        System.out.println(lmap.get(3)); 
+        
+    }
+}

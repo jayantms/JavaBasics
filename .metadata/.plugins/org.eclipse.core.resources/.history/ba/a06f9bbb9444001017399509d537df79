@@ -1,0 +1,43 @@
+package basics.collections.kafka; 
+
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+
+import basics.collections.listinterface.Employee;
+
+import org.apache.kafka.clients.producer.*;
+import java.util.Properties;
+
+public class KafkaProducerExample {
+    private static final String TOPIC = "testtopic-1";
+    private static final String BOOTSTRAP_SERVERS = "localhost:9092";
+
+    public static void main(String[] args) {
+        Properties props = new Properties();
+        props.put("bootstrap.servers", BOOTSTRAP_SERVERS);
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        
+        Employee l1 = new Employee(1,"Abcd"); 
+        Employee l2 = new Employee(2,"Pqrs"); 
+        Employee l3 = new Employee(3,"rstv"); 
+        Employee l4 = new Employee(4,"lmno"); 
+
+        try (Producer<String, Employee> producer = new KafkaProducer<>(props)) {
+           // for (int i = 0; i < 10; i++) {
+                String key = Integer.toString(0);
+                Employee value = l1; 
+                
+                producer.send(new ProducerRecord<>(TOPIC, key, value),
+                    (metadata, exception) -> {
+                        if (exception == null) {
+                            System.out.printf("Sent message: key=%s, value=%s%n", key, value.toString());
+                        } else {
+                            exception.printStackTrace();
+                        }
+                    });
+          //  }
+        }
+    }
+}

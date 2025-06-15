@@ -1,0 +1,14 @@
+package basics.collections.lambdaexpressions;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class App {
+	public static void main(String[] args) {
+		
+		List lcarList = List.of(new Car("Sedan","BMW","530","1998")); 
+		
+		
+		
+	}
+}
