@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class HashSet_usage {
+public class Sets_HashSet_usage {
 	public static void main(String args[]) {
 		Set<Integer> lset = new HashSet<Integer>();
 		

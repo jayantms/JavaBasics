@@ -6,7 +6,7 @@ import java.util.Map;
 
 ///////// Map
 
-public class Hashmap_usage 
+public class Maps_Hashmap_usage 
 {
     public static void main( String[] args )
     {
