@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: prod
+
+
+apiKey: 4e572862324868e66e332e4e01493dd2

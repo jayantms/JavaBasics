@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.entity.User;
+import com.example.demo.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,11 +29,64 @@ public class JournalController {
 	@Autowired
 	private JournalService journalEntryService;
 
+	@Autowired
+	private UserService userService;
+
 	@GetMapping("healthcheck")
 	public String helathcheck() {
 		return "Ok"; 
 	}
-	
+
+	@GetMapping("/{userName}")
+	public ResponseEntity<List<JournalEntry>> getJournalEntriesByUserName(@PathVariable String userName) {
+
+		User luser = userService.getUserByUserName(userName);
+		List<JournalEntry> lJournalEntries = luser.getJournalEntryList();
+
+		if(lJournalEntries != null && !lJournalEntries.isEmpty()) {
+			return new ResponseEntity<>(luser.getJournalEntryList(), HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@PostMapping("{userName}")
+	public ResponseEntity<JournalEntry> createEntry(@RequestBody JournalEntry myEntry, @PathVariable String userName ) {
+
+		try {
+			journalEntryService.saveEntry(myEntry, userName);
+			return new ResponseEntity<>(myEntry, HttpStatus.CREATED);
+		}
+		catch(Exception ex) {
+			System.out.println(ex);
+			return new ResponseEntity<>(myEntry, HttpStatus.BAD_REQUEST);
+		}
+	}
+
+
+	@DeleteMapping("id/{userName}/{journalId}")
+	public ResponseEntity<?> deleteJournalEntryById(@PathVariable String userName, @PathVariable ObjectId journalId) {
+		journalEntryService.deleteJournalEntryById(userName, journalId);
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
+
+	@PutMapping("id/{userName}/{journalId}")
+	public ResponseEntity<JournalEntry> updateEntry(@PathVariable String userName, @RequestBody JournalEntry updatedEntry) {
+		JournalEntry loldEntry = journalEntryService.getJournalEntryById(updatedEntry.getId()).orElse(null);
+
+		if(loldEntry != null) {
+			loldEntry.setTitle(updatedEntry.getTitle() != null && !updatedEntry.getTitle().equals("") ? updatedEntry.getTitle() : loldEntry.getTitle());
+			loldEntry.setContent(updatedEntry.getContent() != null && !updatedEntry.getContent().equals("") ? updatedEntry.getContent() : loldEntry.getContent());
+			journalEntryService.saveEntry(loldEntry);
+			return new ResponseEntity<>(loldEntry, HttpStatus.OK);
+		}
+
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+
+
+	/*
 	@GetMapping
 	public List<JournalEntry> getAll() {
 		return journalEntryService.getAllEntries(); 
@@ -49,37 +104,8 @@ public class JournalController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@PostMapping 
-	public ResponseEntity<JournalEntry> createEntry(@RequestBody JournalEntry myEntry) {
-		
-		try {
-			myEntry.setLdate(LocalDateTime.now());
-			journalEntryService.saveEntry(myEntry);
-			return new ResponseEntity<>(myEntry, HttpStatus.CREATED);
-		}
-		catch(Exception ex) { 
-			return new ResponseEntity<>(myEntry, HttpStatus.BAD_REQUEST);
-		}
-	}
-	
-	@PutMapping 
-	public ResponseEntity<JournalEntry> updateEntry(@RequestBody JournalEntry updatedEntry) {
-		JournalEntry loldEntry = journalEntryService.getJournalEntryById(updatedEntry.getId()).orElse(null); 
-		
-		if(loldEntry != null) { 
-			loldEntry.setTitle(updatedEntry.getTitle() != null && !updatedEntry.getTitle().equals("") ? updatedEntry.getTitle() : loldEntry.getTitle());
-			loldEntry.setContent(updatedEntry.getContent() != null && !updatedEntry.getContent().equals("") ? updatedEntry.getContent() : loldEntry.getContent());
-			journalEntryService.saveEntry(loldEntry);
-			return new ResponseEntity<>(loldEntry, HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	}
-	
-	@DeleteMapping("id/{journalId}")
-	public ResponseEntity<?> deleteJournalEntryById(@PathVariable ObjectId journalId) {
-		journalEntryService.deleteJournalEntryById(journalId);
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	}
+
+
+	*/
 }
 
