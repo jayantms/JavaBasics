@@ -6,6 +6,7 @@ import com.example.demo.repo.ConfigRepo;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -28,14 +29,28 @@ public class WeatherService {
     @Autowired
     CacheService cacheService;
 
-    public WeatherResponse getWeather(String city) {
-        String apiURL;
-        apiURL = cacheService.configMap.get("weather_api");
+    @Autowired
+    RedisService redisService;
 
-        String finalURL = apiURL.replace("CITY", city).replace("APIKEY", apiKey);
-        System.out.println("URL created - "+finalURL);
-        ResponseEntity<WeatherResponse> response = restTemplate.exchange(finalURL, HttpMethod.GET, null, WeatherResponse.class);
-        WeatherResponse body = response.getBody();
-        return body;
+    public WeatherResponse getWeather(String city) {
+
+        WeatherResponse weatherResponse = redisService.getWeather("weather_for_" + city, WeatherResponse.class);
+
+        if( weatherResponse != null) {
+            return weatherResponse;
+        }else
+        {
+            String apiURL;
+            apiURL = cacheService.configMap.get("weather_api");
+
+            String finalURL = apiURL.replace("CITY", city).replace("APIKEY", apiKey);
+            System.out.println("URL created - "+finalURL);
+            ResponseEntity<WeatherResponse> response = restTemplate.exchange(finalURL, HttpMethod.GET, null, WeatherResponse.class);
+            WeatherResponse body = response.getBody();
+
+            redisService.setWeather("weather_for_" + city, body, 300l);
+            return body;
+        }
     }
+
 }

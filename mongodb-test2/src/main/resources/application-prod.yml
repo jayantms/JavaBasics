@@ -7,6 +7,8 @@ spring:
       uri: mongodb+srv://jayantms:2vYuBjoWa9QyWMgF@cluster0.faebdbu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: journaldb
       auto-index-creation: true
+  redis:
+    uri: redis://default:Gdt8Mnjk4HO7zlC3Ty152ImysiSf41pC@redis-13954.c82.us-east-1-2.ec2.redns.redis-cloud.com:13954
 
 server:
   port: 8081

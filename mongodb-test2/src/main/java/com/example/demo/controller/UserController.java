@@ -7,6 +7,7 @@ import com.example.demo.entity.*;
 import com.example.demo.service.WeatherService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	private CacheService cacheService;
+
+	@Autowired
+	private RedisTemplate redisTemplate;
 
 	@GetMapping
 	public List<User> getAll() {
@@ -78,6 +82,8 @@ public class UserController {
 
 	@GetMapping("/greetings")
 	public ResponseEntity<?> greetings() {
+		Object lweatherResponse = redisTemplate.opsForValue().get("Pune");
+
 
 		WeatherResponse weatherResponse = weatherService.getWeather("Pune");
 		String greetings = "";
