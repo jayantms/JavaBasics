@@ -80,6 +80,7 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
+
 	@GetMapping("/greetings")
 	public ResponseEntity<?> greetings() {
 		Object lweatherResponse = redisTemplate.opsForValue().get("Pune");
@@ -97,5 +98,15 @@ public class UserController {
 	public void clearCache() {
 		cacheService.init();
 	}
+
+	////////////////////////
+
+	@PostMapping("/weather/{cityName}")
+	public ResponseEntity<?> greetings(@PathVariable String cityName) {
+
+		return new ResponseEntity<>( "Hello from "+cityName, HttpStatus.OK);
+	}
+
+
 }
 

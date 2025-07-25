@@ -1,5 +1,0 @@
-package basics.collections.mongodbaccess.entity;
-
-public class JournalEntry {
-
-}

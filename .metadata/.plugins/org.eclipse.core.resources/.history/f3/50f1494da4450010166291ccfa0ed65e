@@ -1,8 +1,0 @@
-package basics.codingpractice;
-
-public class ThreeSum {
-	public static void main(String[] args) {
-		int[] nums = new int[] {}; 
-		
-	}
-}

@@ -1,9 +1,0 @@
-package basics.collections.listinterface;
-
-public class LinkedListExample {
-
-	public static void main(String[] args) {
-
-		List<Employee> llinkedList = new LinkedList<Employee>(); 
-	}
-}

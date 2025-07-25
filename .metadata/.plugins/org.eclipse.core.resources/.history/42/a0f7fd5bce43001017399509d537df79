@@ -1,8 +1,0 @@
-package basics.collections.linkedlistimplementation;
-
-public class LinkedListX {
-	
-	public void insertNode(T ldata) {
-		
-	}
-}

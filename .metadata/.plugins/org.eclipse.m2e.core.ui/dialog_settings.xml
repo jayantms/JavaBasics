@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\jsonchhatra\Basics\algorithms"/>
 			<item value="C:\Users\jsonchhatra\Basics\CodingPractice\src\basics\codingpractice\TwoSum.java"/>
 			<item value="C:\Users\jsonchhatra\Downloads\demo\demo"/>
 			<item value="C:\Users\jsonchhatra\Basics\comparator"/>
@@ -31,6 +32,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="basics.codingpractice.datastructures"/>
 			<item value="basics.codingpractice.algorithms"/>
 			<item value="basics.codingpractice.TwoSum"/>
 		</list>
@@ -38,6 +40,7 @@
 			<item value="basics.codingpractice"/>
 		</list>
 		<list key="artifactId">
+			<item value="datastructures"/>
 			<item value="algorithms"/>
 			<item value="TwoSum"/>
 		</list>

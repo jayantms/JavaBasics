@@ -1,8 +1,0 @@
-package basics.collections.mongodbaccess.service;
-
-
-public class JournalService {
-
-	@Autowired
-	private JournalEntryRepo journalRepo; 
-}

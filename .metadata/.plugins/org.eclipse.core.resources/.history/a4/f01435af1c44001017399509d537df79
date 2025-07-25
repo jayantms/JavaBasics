@@ -1,5 +1,0 @@
-package basics.collections.kafka.service;
-
-public class KafkaMessagePublisher {
-
-}
